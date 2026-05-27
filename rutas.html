@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas - Art Tour France</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo Art Tour France">
+    </div>
+
+    <nav aria-label="Navegación de rutas">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="museos.html">Museos</a></li>
+            <li><a href="rutas.html" class="active">Rutas</a></li>
+            <li><a href="#">Arquitectura</a></li>
+            <li><a href="#">Eventos Culturales</a></li>
+        </ul>
+    </nav>
+
+    <div class="idioma">
+        <label for="idioma">Idioma:</label>
+        <select id="idioma" aria-label="Seleccionar idioma">
+            <option>ES</option>
+            <option>EN</option>
+        </select>
+    </div>
+</header>
+
+<main class="container">
+
+    <h1 class="bloque-titulo">Ruta de los Impresionistas</h1>
+
+    <div class="layout-dos-columnas">
+
+        <section class="columna-mapa">
+            <div class="placeholder-mapa">
+                <img src="images/mapa-ruta.jpg" alt="Mapa interactivo detallando la ruta de los Impresionistas">
+                <p>Mapa Interactivo</p>
+            </div>
+        </section>
+
+        <section class="columna-info">
+            <div class="caja-texto">
+                <h2>Descripción de la ruta</h2>
+                <p>
+                    Explora los paisajes que inspiraron a Monet, Renoir y Degas. 
+                    Esta ruta te llevará por los barrios de Montmartre y las orillas del Sena, 
+                    donde nació el movimiento que cambió la historia del arte para siempre.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="iconos-ruta">
+        <div class="item-icono">Puntos de interés</div>
+        <div class="item-icono">Datos culturales</div>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Art Tour France - Shaffy Santiago Guerrero Guevara</p>
+</footer>
+
+<script>
+// REQUISITOS FASE 4 PARA RUTAS
+// 1. Menú dinámico mouseover/mouseout
+const linksRutas = document.querySelectorAll('nav ul li a');
+linksRutas.forEach(l => {
+    l.onmouseover = () => { l.style.color = "#EF4135"; l.style.fontWeight = "900"; };
+    l.onmouseout = () => { l.style.color = ""; l.style.fontWeight = "700"; };
+});
+
+// 2. Mensaje personalizado al cargar según cultura
+window.onload = () => {
+    const desc = document.querySelector('.caja-texto h2');
+    const msg = document.createElement('span');
+    msg.style.display = "block";
+    msg.style.fontSize = "0.8rem";
+    msg.style.color = "#0055A4";
+    msg.innerText = "¡Explora el legado cultural francés!";
+    desc.appendChild(msg);
+};
+</script>
+
+</body>
+</html>

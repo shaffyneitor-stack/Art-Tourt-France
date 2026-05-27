@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museos - Art Tour France</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo"><img src="images/logo.png" alt="Logo Art Tour France"></div>
+
+    <nav aria-label="Navegación de museos">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="museos.html" class="active">Museos</a></li>
+            <li><a href="rutas.html">Rutas</a></li>
+        </ul>
+    </nav>
+
+    <div class="idioma">
+        <label for="idioma">Idioma:</label>
+        <select id="idioma">
+            <option>ES</option>
+            <option>EN</option>
+        </select>
+    </div>
+</header>
+
+<main class="container">
+
+<section class="seccion-titulo">
+    <h1 class="bloque-titulo">Museo del Louvre</h1>
+</section>
+
+<section class="descripcion-museo">
+    <div class="caja-texto">
+        <h2>Descripción</h2>
+        <p>
+            Francia es uno de los países más importantes en la historia del arte.
+             A lo largo del tiempo ha sido el lugar donde surgieron movimientos como el impresionismo y donde vivieron artistas reconocidos como Monet, Degas y Picasso.
+
+Además de sus museos, el país tiene una gran riqueza cultural que se refleja en su arquitectura, sus calles y sus monumentos.
+ Ciudades como París ofrecen una experiencia única para quienes disfrutan del arte, ya que combinan historia, cultura y creatividad en un mismo lugar.
+
+Por eso, visitar Francia es una oportunidad para conocer de cerca el desarrollo del arte y entender por qué es considerado un referente a nivel mundial.
+        </p>
+    </div>
+</section>
+
+<section class="galeria-seccion">
+    <h2 class="bloque-titulo">Galería de imágenes</h2>
+
+    <div class="carrusel-museo">
+        <button class="prev">&#10094;</button>
+
+        <div class="imagenes-grid">
+            <img id="museo-img" src="images/museo-1.jpg">
+        </div>
+
+        <button class="next">&#10095;</button>
+    </div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2026 Art Tour France</p>
+</footer>
+
+<script>
+/* MANTENIENDO LÓGICA ORIGINAL */
+const museoImgs = [
+"images/museo-1.jpg",
+"images/museo-2.jpg",
+"images/museo-3.jpg",
+"images/museo-4.jpg"
+];
+
+let i = 0;
+const museo = document.getElementById("museo-img");
+
+document.querySelector(".next").onclick = () => {
+    i = (i + 1) % museoImgs.length;
+    museo.src = museoImgs[i];
+};
+
+document.querySelector(".prev").onclick = () => {
+    i = (i - 1 + museoImgs.length) % museoImgs.length;
+    museo.src = museoImgs[i];
+};
+
+/*  REQUISITOS FASE 4 */
+
+// 1. Slider Automático
+setInterval(() => {
+    i = (i + 1) % museoImgs.length;
+    museo.src = museoImgs[i];
+}, 4000);
+
+// 2. Interactividad en el Menú
+const navItems = document.querySelectorAll('nav ul li a');
+navItems.forEach(item => {
+    item.onmouseover = () => item.style.textDecoration = "underline";
+    item.onmouseout = () => item.style.textDecoration = "none";
+});
+
+// 3. Personalización por Idioma (DOM)
+document.getElementById('idioma').onchange = function() {
+    const titulo = document.querySelector('.bloque-titulo');
+    titulo.innerText = this.value === "EN" ? "Louvre Museum" : "Museo del Louvre";
+};
+</script>
+
+</body>
+</html>
